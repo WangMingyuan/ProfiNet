@@ -1,0 +1,82 @@
+host = "10.7.93.84"     # "192.168.0.1"
+rack = 0                # 台架号，默认0
+slot = 2                # 插槽号，默认2
+port = 102              # 端口，默认102
+db_num = 50             # 操作的DB号
+
+
+[Real]
+    TICR6_1_14_1
+    TICR6_1_14_2
+    TICR24_1_20_1
+    TICR6_1_10_1
+    TICR6_1_12_1
+    TICR6_1_14_0
+    QIRC26_1_12_1
+    TIR_2_1_14_1
+    TIR3_1_14_1
+    TICR17_1_18_1
+    TICR17_1_18_2
+    MIR6_1_13_1
+    PDSR4_1_10_1
+    PIR4_1_11_1
+    PIR4_1_11_2
+    PIR17_1_35_1
+    Temp_setpoint
+    spare_1
+    spare_2
+    spare_3
+    spare_4
+    spare_5
+    spare_6
+    spare_7
+    spare_8
+    spare_9
+    spare_10
+
+[Integer]
+    system_status
+    temperature_control
+    circulate_fan_status
+    purge_fan_status
+    bag_status
+    gate_status
+    door_status
+    seal_status
+    spare_1
+    spare_2
+    spare_3
+    spare_4
+    spare_5
+    spare_6
+    spare_7
+    spare_8
+    spare_9
+    spare_10
+
+[Bool]
+    live_bit
+    error_A
+    error_B
+    error_C
+    spare_1
+    spare_2
+    spare_3
+    spare_4
+    spare_5
+    spare_6
+    spare_7
+    spare_8
+    spare_9
+    spare_10
+    spare_11
+    spare_12
+    spare_13
+    spare_14
+    spare_15
+    spare_16
+    spare_17
+    spare_18
+    spare_19
+    spare_20
+
