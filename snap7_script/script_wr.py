@@ -19,7 +19,7 @@ class PLC:
 
         """
         self.conf = conf = {
-            "host": "127.0.0.1",    # IP地址
+            "host": "192.168.0.21",    # IP地址
             "rack": 0,              # 台架号
             "slot": 2,              # 插槽号
             "port": 1102,           # 端口
@@ -64,10 +64,6 @@ class PLC:
 
 if __name__ == "__main__":
     plc = PLC()
-    plc.write(data=int(0).to_bytes(1, "big"), start=0)
-    plc.write(data=int(1).to_bytes(1, "big"), start=1)
-    plc.write(data=int(2).to_bytes(1, "big"), start=2)
-    plc.write(data=int(3).to_bytes(1, "big"), start=3)
-    plc.write(data=int(4).to_bytes(1, "big"), start=4)
+    #plc.write(data=int(0).to_bytes(1, "big"), start=0)
     # plc.write(b'222')
     plc.read()

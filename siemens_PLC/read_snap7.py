@@ -38,7 +38,7 @@ class PLC:
         # data size
         self.real_size = real_end - real_start + 4
         self.int_size = int_end - int_start + 2
-        self.bool_size = bool_end - bool_start + 0.1
+        self.bool_size = bool_end - bool_start + 1
 
         # create client
         self.client = snap7.client.Client()
@@ -75,7 +75,7 @@ class PLC:
         data = self.client.db_read(self.db, self.int_start, self.int_size)
 
         int_list = []
-        for index in range(self.int_start, self.int_end + 1, 2):
+        for index in range(0, self.int_size - 1, 2):
             int_data = util.get_int(data, index)
             int_list.append(int_data)
 
@@ -91,7 +91,7 @@ class PLC:
         data = self.client.db_read(self.db, self.bool_start, self.bool_size)
 
         bool_list = []
-        for be in range(self.bool_start, self.bool_end + 1):
+        for be in range(0, self.bool_size, 1):
             for bl in range(0, 8):
                 bool_data = util.get_bool(data, byte_index=be, bool_index=bl)
                 bool_list.append(bool_data)
@@ -101,3 +101,6 @@ class PLC:
 
 if __name__ == "__main__":
     plc = PLC()
+    plc.read_Real()
+    plc.read_Integer()
+    plc.read_Bool()
