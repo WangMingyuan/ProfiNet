@@ -43,7 +43,7 @@ class PLC:
         # create client
         self.client = snap7.client.Client()
         self.client.connect(
-            conf['conf'].get('host', "10.7.93.84"),
+            conf['conf'].get('host', "192.168.0.1"),
             conf['conf'].get('rack', 0),
             conf['conf'].get('slot', 2),
             conf['conf'].get('port', 102),
@@ -52,14 +52,11 @@ class PLC:
     def read_Real(self):
         """
         Read Real type Data from snap7-server
-
-        :param start: 开始的下标
-        :param size: 每一组数据的大小
         """
         data = self.client.db_read(self.db, self.real_start, self.real_size)
 
         real_list = []
-        for index in range(self.real_start, self.real_end + 1, 4):
+        for index in range(self.real_start, self.real_size-1, 4):
             real_data = util.get_real(data, index)
             real_list.append(real_data)
 
@@ -68,14 +65,11 @@ class PLC:
     def read_Integer(self):
         """
         Read Integer type Data from snap7-server
-
-        :param start: 开始的下标
-        :param size: 每一组数据的大小
         """
         data = self.client.db_read(self.db, self.int_start, self.int_size)
 
         int_list = []
-        for index in range(0, self.int_size - 1, 2):
+        for index in range(0, self.int_size-1, 2):
             int_data = util.get_int(data, index)
             int_list.append(int_data)
 
@@ -91,7 +85,7 @@ class PLC:
         data = self.client.db_read(self.db, self.bool_start, self.bool_size)
 
         bool_list = []
-        for be in range(0, self.bool_size, 1):
+        for be in range(0, self.bool_size):
             for bl in range(0, 8):
                 bool_data = util.get_bool(data, byte_index=be, bool_index=bl)
                 bool_list.append(bool_data)
