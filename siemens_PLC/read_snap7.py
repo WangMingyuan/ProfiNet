@@ -63,7 +63,7 @@ class PLC:
             real_data = util.get_real(data, index)
             real_list.append(real_data)
 
-        print("real_list = {}\n".format(real_list))
+        print("real_list<{}> = {}\n".format(len(real_list), real_list))
 
     def read_Integer(self):
         """
@@ -79,7 +79,7 @@ class PLC:
             int_data = util.get_int(data, index)
             int_list.append(int_data)
 
-        print("int_list = {}\n".format(int_list))
+        print("int_list<{}> = {}\n".format(len(int_list), int_list))
 
     def read_Bool(self):
         """
@@ -96,7 +96,7 @@ class PLC:
                 bool_data = util.get_bool(data, byte_index=be, bool_index=bl)
                 bool_list.append(bool_data)
 
-        print("bool_list = {}".format(bool_list))
+        print("bool_list<{}> = {}".format(len(bool_list), bool_list))
 
 
 if __name__ == "__main__":
