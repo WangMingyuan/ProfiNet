@@ -1,6 +1,6 @@
 # import ctypes
 import snap7
-from snap7 import util
+#  from snap7 import util
 
 
 conf = {
@@ -20,7 +20,7 @@ def write(client):
     """"""
     # db read db, start, size
     # attention!!! size is byte
-    client.db_write(1, 4, b"2")
+    client.db_write(1, 7, (30).to_bytes(1, byteorder='big'))
 
 
 def main():
